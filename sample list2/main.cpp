@@ -291,6 +291,31 @@ int main()
 		std::cout << it << " ";
 	}
 	std::cout << std::endl;
+
+	//assign()を使います
+	i_list6.assign(5, 2);
+	//回します
+	//表示結果　2 2 2 2 2
+	std::cout << "i_list6 に assign(5, 2) を使いました\n";
+	for (auto it : i_list6)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
+
+
+	//reverse() を使います
+	i_list6.reverse();
+	//reverse() とは
+	//要素の並びを反転させます
+	//回します
+	//表示結果　2 2 2 2 2 1 1 1 1 1
+	std::cout << "i_list6 に reverse() を使いました\n";
+	for (auto it : i_list6)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
 	std::cout << std::endl;
 	std::cout << std::endl;
 
@@ -351,6 +376,149 @@ int main()
 		{
 			std::cout << it << " ";
 		}
+	}
+	std::cout << std::endl;
+
+
+	//要素を追加します
+	i_list8.push_back(7);
+	i_list8.push_back(8);
+	i_list8.push_back(9);
+	//advance()でずらします
+	std::advance(it7, -2);
+	//splice()を使います
+	i_list7.splice(it7, i_list8, i_list8.begin());
+	//splice(イテレータ1, リスト, イテレータ2) とは
+	//イテレータ1の指す位置から次の要素の間に指定したリストのイテレータ2の指す要素を移動させることができる
+	//回します
+	//表示結果　1 2 0 7 0 0 3 4 5
+	std::cout << "i_list7 に splice(it7, i_list8, i_list8.begin()) を使いました\n";
+	for (auto it : i_list7)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
+
+
+	//回します
+	//表示結果　8 9
+	std::cout << "i_list8 は i_list7 に 7 を移動させたので 8 9 しかないですです\n";
+	if (i_list8.empty())
+	{
+		std::cout << "要素がないですよ（笑）\n";
+	}
+	else
+	{
+		for (auto it : i_list8)
+		{
+			std::cout << it << " ";
+		}
+	}
+	std::cout << std::endl;
+
+
+	//要素を追加します
+	i_list8.push_front(7);
+	i_list8.push_back(10);
+	//advance()を使います
+	std::list<int>::iterator it8 = i_list8.begin();
+	std::advance(it7, 1);
+	std::advance(it8, 2);
+	//splice()を使います
+	i_list7.splice(it7, i_list8, i_list8.begin(), it8);
+	//splice(イテレータ1, リスト, イテレータ2, イテレータ3) とは
+	//イテレータ1の指す位置から次の要素の間に指定したリストのイテレータ2からイテレータ3の間の要素を移動させることができる
+	//回します
+	//表示結果　1 2 0 7 0 0 3 4 5
+	std::cout << "i_list7 に splice(it7, i_list8, i_list8.begin(), it8) を使いました\n";
+	for (auto it : i_list7)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
+
+
+	//回します
+	//表示結果　8 9
+	std::cout << "i_list8 は i_list7 に 7 8 を移動させたので 9 10 しかないですです\n";
+	if (i_list8.empty())
+	{
+		std::cout << "要素がないですよ（笑）\n";
+	}
+	else
+	{
+		for (auto it : i_list8)
+		{
+			std::cout << it << " ";
+		}
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+
+	
+	//i_list9, i_list10を作成しました
+	std::list<int> i_list9 = { 1, 2, 3 };
+	std::list<int> i_list10 = { 1, 1, 1 };
+	//回します
+	//表示結果　1 2 3
+	std::cout << "i_list9を作成しました\n";
+	for (auto it : i_list9)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
+
+
+	//回します
+	//表示結果　1 1 1
+	std::cout << "i_list10を作成しました\n";
+	for (auto it : i_list10)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
+
+
+	//insert() を使います
+	i_list9.insert(i_list9.begin(), 0);
+	//insert(イテレータ, 値) とは
+	//指定した場所から値を挿入します
+	//回します
+	//表示結果　0 1 2 3
+	std::cout << "i_list9 に insert(i_list9, 0) を使用しました\n";
+	for (auto it : i_list9)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
+
+
+	//insert() を使います
+	i_list9.insert(i_list9.begin(), 3, 9);
+	//insert(イテレータ, 値1, 値2) とは
+	//指定した場所から値2を値1の数だけ挿入します
+	//回します
+	//表示結果　9 9 9 0 1 2 3
+	std::cout << "i_list9 に insert(i_list9, 3, 9) を使用しました\n";
+	for (auto it : i_list9)
+	{
+		std::cout << it << " ";
+	}
+	std::cout << std::endl;
+
+
+	//insert() を使います
+	i_list9.insert(i_list9.end(), i_list10.begin(), i_list10.end());
+	//insert(イテレータ, 値1, 値2) とは
+	//指定した場所から値1を値2の範囲にある要素を挿入します
+	//回します
+	//表示結果　9 9 9 0 1 2 3
+	std::cout << "i_list9 に insert(i_list9, i_list10.begin(), i_list10.end()) を使用しました\n";
+	for (auto it : i_list9)
+	{
+		std::cout << it << " ";
 	}
 	std::cout << std::endl;
 
