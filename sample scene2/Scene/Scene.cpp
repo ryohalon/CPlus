@@ -1,0 +1,45 @@
+#include "Scene.h"
+
+//////////////////////////////////////////////////////////////////////////////////
+//タイトル
+//////////////////////////////////////////////////////////////////////////////////
+
+void Title::update()
+{
+
+}
+
+void Title::draw()
+{
+	drawFillBox(-50, -50, 100, 100, Color::red);
+}
+
+SceneName Title::shift()
+{
+	if (App::getInstance().isPushKey(GLFW_KEY_ENTER)){ return (GAME); }
+
+	return (TITLE);
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//ゲーム
+/////////////////////////////////////////////////////////////////////////////////
+
+void Game::update()
+{
+
+}
+
+void Game::draw()
+{
+	drawFillBox(-50, -50, 100, 100, Color::blue);
+}
+
+SceneName Game::shift()
+{
+	if (App::getInstance().isPushKey(GLFW_KEY_ENTER)){ return (TITLE); }
+
+	return (GAME);
+}
